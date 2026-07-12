@@ -152,15 +152,15 @@ export default function Inicio() {
         >
           <div className="brillo-hero" aria-hidden="true" />
           <span className="etiqueta animate-[aparecer_0.6s_ease_both]">
-            Entrenamiento personal online
+            Entrenamiento personal · online y presencial
           </span>
           <h1 className="max-w-2xl animate-[aparecer_0.6s_ease_0.1s_both] text-4xl font-bold tracking-tight md:text-5xl">
             Un método real, un entrenador detrás, resultados que se ven.
           </h1>
           <p className="max-w-xl animate-[aparecer_0.6s_ease_0.2s_both] text-balance text-base text-texto-2 md:text-lg">
-            Rutina que progresa semana a semana, dieta por gramos y una
-            revisión real de tu evolución. Nada de apps genéricas sin nadie
-            al otro lado.
+            Entrena conmigo en mi estudio o desde donde estés: misma rutina
+            que progresa semana a semana, dieta por gramos y una revisión
+            real de tu evolución.
           </p>
           <div className="flex animate-[aparecer_0.6s_ease_0.3s_both] flex-col gap-3 sm:flex-row">
             <a href="#contacto" className="cta">
@@ -183,7 +183,9 @@ export default function Inicio() {
               <p className="mt-4 text-texto-2">
                 Llevo mi propio método de entrenamiento y nutrición con cada
                 cliente: nada de rutinas genéricas ni dietas copiadas. Todo se
-                ajusta cada semana según cómo respondes tú.
+                ajusta cada semana según cómo respondes tú — tanto si
+                entrenamos presencialmente en mi estudio como si lo hacemos
+                online.
               </p>
             </Revelar>
 
@@ -350,8 +352,9 @@ export default function Inicio() {
                 Hablemos de tu objetivo
               </h2>
               <p className="mt-4 text-texto-2">
-                Cuéntame dónde estás y a dónde quieres llegar. Te respondo yo
-                personalmente para ver si encajamos y cómo empezar.
+                Cuéntame dónde estás y a dónde quieres llegar — y si prefieres
+                entrenar presencialmente en mi estudio o online. Te respondo
+                yo personalmente para ver si encajamos y cómo empezar.
               </p>
               <a
                 href="https://instagram.com/liviufitness"

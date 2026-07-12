@@ -15,8 +15,8 @@ export default function Footer() {
             className="h-7 w-auto self-start"
           />
           <p className="max-w-xs text-sm text-atenuado">
-            Entrenamiento personal online con seguimiento real. Un método, un
-            entrenador, resultados de verdad.
+            Entrenamiento personal online y presencial, con seguimiento real.
+            Un método, un entrenador, resultados de verdad.
           </p>
           <a
             href="https://instagram.com/liviufitness"

@@ -5,6 +5,11 @@ import { ChevronDown } from "lucide-react";
 
 const PREGUNTAS = [
   {
+    pregunta: "¿Entrenas presencial u online?",
+    respuesta:
+      "Las dos cosas. Puedes entrenar conmigo presencialmente en mi estudio o completamente online — el método, el seguimiento semanal y la app son los mismos en ambos casos.",
+  },
+  {
     pregunta: "¿Necesito experiencia previa entrenando?",
     respuesta:
       "No. El método se adapta a tu nivel de partida, desde cero hasta avanzado — la rutina y la progresión se ajustan a ti, no al revés.",
@@ -15,7 +20,7 @@ const PREGUNTAS = [
       "Cada semana reviso tu peso, tu adherencia y tu progreso, y ajusto tu rutina y tu dieta en consecuencia. Además tienes chat directo conmigo para dudas del día a día.",
   },
   {
-    pregunta: "¿Puedo entrenar en cualquier gimnasio o en casa?",
+    pregunta: "Si entreno online, ¿puedo hacerlo en cualquier gimnasio o en casa?",
     respuesta:
       "Cuéntame tu situación cuando me escribas — con qué material cuentas y dónde entrenas — y adapto tu rutina a eso.",
   },

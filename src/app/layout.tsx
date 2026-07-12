@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     template: "%s · LivFit",
   },
   description:
-    "Coaching online con Liviu: rutina semanal personalizada, dieta por gramos y seguimiento real de tu progreso. Sin apps genéricas, con entrenador detrás.",
+    "Entrenamiento personal con Liviu, online o presencial: rutina semanal personalizada, dieta por gramos y seguimiento real de tu progreso.",
   openGraph: {
     title: "LivFit — Entrenamiento personal con seguimiento real",
     description:
-      "Coaching online con Liviu: rutina semanal personalizada, dieta por gramos y seguimiento real de tu progreso.",
+      "Entrenamiento personal con Liviu, online o presencial: rutina semanal personalizada, dieta por gramos y seguimiento real de tu progreso.",
     siteName: "LivFit",
     locale: "es_ES",
     type: "website",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LivFit — Entrenamiento personal con seguimiento real",
     description:
-      "Coaching online con Liviu: rutina semanal personalizada, dieta por gramos y seguimiento real de tu progreso.",
+      "Entrenamiento personal con Liviu, online o presencial: rutina semanal personalizada, dieta por gramos y seguimiento real de tu progreso.",
     images: ["/logo-livfit-fondo.png"],
   },
   icons: {
