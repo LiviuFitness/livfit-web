@@ -12,7 +12,7 @@ export default function Footer() {
             alt="LivFit"
             width={110}
             height={38}
-            className="h-7 w-auto"
+            className="h-7 w-auto self-start"
           />
           <p className="max-w-xs text-sm text-atenuado">
             Entrenamiento personal online con seguimiento real. Un método, un
