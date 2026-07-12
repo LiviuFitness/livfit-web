@@ -10,6 +10,7 @@ import {
   Send,
   Target,
 } from "lucide-react";
+import Image from "next/image";
 import Header from "@/componentes/Header";
 import Footer from "@/componentes/Footer";
 import CapturaApp from "@/componentes/CapturaApp";
@@ -148,27 +149,45 @@ export default function Inicio() {
         {/* Hero */}
         <section
           id="hero"
-          className="contenedor relative flex flex-col items-center gap-6 overflow-hidden py-20 text-center md:py-28"
+          className="contenedor relative overflow-hidden py-20 md:py-28"
         >
           <div className="brillo-hero" aria-hidden="true" />
-          <span className="etiqueta animate-[aparecer_0.6s_ease_both]">
-            Entrenamiento personal · online y presencial
-          </span>
-          <h1 className="max-w-2xl animate-[aparecer_0.6s_ease_0.1s_both] text-4xl font-bold tracking-tight md:text-5xl">
-            Un método real, un entrenador detrás, resultados que se ven.
-          </h1>
-          <p className="max-w-xl animate-[aparecer_0.6s_ease_0.2s_both] text-balance text-base text-texto-2 md:text-lg">
-            Entrena conmigo en mi estudio o desde donde estés: misma rutina
-            que progresa semana a semana, dieta por gramos y una revisión
-            real de tu evolución.
-          </p>
-          <div className="flex animate-[aparecer_0.6s_ease_0.3s_both] flex-col gap-3 sm:flex-row">
-            <a href="#contacto" className="cta">
-              Empieza tu método
-            </a>
-            <a href="#incluye" className="ghost">
-              Ver qué incluye
-            </a>
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            <div className="flex flex-col items-center gap-6 text-center md:items-start md:text-left">
+              <span className="etiqueta animate-[aparecer_0.6s_ease_both]">
+                Entrenamiento personal · online y presencial
+              </span>
+              <h1 className="max-w-2xl animate-[aparecer_0.6s_ease_0.1s_both] text-4xl font-bold tracking-tight md:text-5xl">
+                Un método real, un entrenador detrás, resultados que se ven.
+              </h1>
+              <p className="max-w-xl animate-[aparecer_0.6s_ease_0.2s_both] text-balance text-base text-texto-2 md:text-lg">
+                Entrena conmigo en mi estudio o desde donde estés: misma
+                rutina que progresa semana a semana, dieta por gramos y una
+                revisión real de tu evolución.
+              </p>
+              <div className="flex animate-[aparecer_0.6s_ease_0.3s_both] flex-col gap-3 sm:flex-row">
+                <a href="#contacto" className="cta">
+                  Empieza tu método
+                </a>
+                <a href="#incluye" className="ghost">
+                  Ver qué incluye
+                </a>
+              </div>
+            </div>
+
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm animate-[aparecer_0.6s_ease_0.15s_both]">
+              <div className="absolute inset-0 overflow-hidden rounded-3xl border border-borde-2 shadow-[0_25px_70px_rgba(0,0,0,0.5)]">
+                <Image
+                  src="/liviu-hero.jpg"
+                  alt="Liviu, entrenador personal de LivFit"
+                  fill
+                  sizes="(min-width: 768px) 400px, 320px"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-fondo/50 via-transparent to-transparent" />
+              </div>
+            </div>
           </div>
         </section>
 
