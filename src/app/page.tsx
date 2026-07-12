@@ -6,15 +6,13 @@ import {
   CalendarCheck,
   MessageCircle,
   Trophy,
-  Camera,
-  Scale,
   TrendingUp,
   Send,
   Target,
 } from "lucide-react";
 import Header from "@/componentes/Header";
 import Footer from "@/componentes/Footer";
-import MockupTelefono from "@/componentes/MockupTelefono";
+import CapturaApp from "@/componentes/CapturaApp";
 import FormularioContacto from "@/componentes/FormularioContacto";
 import IconoInstagram from "@/componentes/IconoInstagram";
 import Revelar from "@/componentes/Revelar";
@@ -76,9 +74,30 @@ const INCLUYE = [
 ];
 
 const CAPTURAS = [
-  { icono: Scale, titulo: "Registro de peso y progreso" },
-  { icono: Dumbbell, titulo: "Sesión de entrenamiento guiada" },
-  { icono: Camera, titulo: "Fotos de progreso y récords" },
+  {
+    src: "/capturas/sesion-entreno.png",
+    titulo: "Sesión de entrenamiento guiada",
+    width: 700,
+    height: 1101,
+  },
+  {
+    src: "/capturas/dieta.png",
+    titulo: "Dieta con equivalencias",
+    width: 700,
+    height: 658,
+  },
+  {
+    src: "/capturas/inicio.png",
+    titulo: "Racha, hábitos y logros",
+    width: 700,
+    height: 1107,
+  },
+  {
+    src: "/capturas/progreso.png",
+    titulo: "Progreso semanal",
+    width: 700,
+    height: 1101,
+  },
 ];
 
 const PASOS = [
@@ -218,14 +237,20 @@ export default function Inicio() {
                 Tu progreso, siempre a mano
               </h2>
               <p className="mt-4 text-texto-2">
-                Capturas reales de la app próximamente.
+                Capturas reales de la app que usarás cada semana.
               </p>
             </Revelar>
 
             <div className="mt-12 flex flex-wrap items-start justify-center gap-6">
               {CAPTURAS.map((captura, i) => (
-                <Revelar key={captura.titulo} retraso={i * 100}>
-                  <MockupTelefono icono={captura.icono} titulo={captura.titulo} />
+                <Revelar key={captura.src} retraso={i * 100}>
+                  <CapturaApp
+                    src={captura.src}
+                    alt={captura.titulo}
+                    titulo={captura.titulo}
+                    width={captura.width}
+                    height={captura.height}
+                  />
                 </Revelar>
               ))}
             </div>
