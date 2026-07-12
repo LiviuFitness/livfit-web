@@ -10,6 +10,7 @@ import {
   Send,
   Target,
   Calculator,
+  Gift,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/componentes/Header";
@@ -370,6 +371,31 @@ export default function Inicio() {
                 </Revelar>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Trae a un amigo */}
+        <section className="border-t border-borde py-14">
+          <div className="contenedor">
+            <Revelar>
+              <div className="tarjeta tarjeta-interactiva flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-acento/10">
+                    <Gift className="text-acento" size={22} strokeWidth={1.8} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Trae a un amigo</h3>
+                    <p className="mt-1 text-sm text-texto-2">
+                      Si os apuntáis los dos, os regalo una semana gratis a
+                      cada uno.
+                    </p>
+                  </div>
+                </div>
+                <a href="#contacto" className="ghost shrink-0">
+                  Contarme más
+                </a>
+              </div>
+            </Revelar>
           </div>
         </section>
 

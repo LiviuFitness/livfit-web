@@ -34,6 +34,11 @@ const PREGUNTAS = [
     respuesta:
       "Escríbeme por el formulario y te recomiendo el que mejor encaje según tu objetivo — no hace falta que lo decidas antes de hablar conmigo.",
   },
+  {
+    pregunta: "¿Tenéis programa de referidos?",
+    respuesta:
+      "Sí. Si traes a un amigo y los dos empezáis a entrenar conmigo, os regalo una semana gratis a cada uno. Solo tienes que decírmelo cuando me escribas.",
+  },
 ];
 
 export default function Faq() {
