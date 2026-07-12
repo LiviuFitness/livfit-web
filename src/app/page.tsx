@@ -9,12 +9,17 @@ import {
   Camera,
   Scale,
   TrendingUp,
+  Send,
+  Target,
 } from "lucide-react";
 import Header from "@/componentes/Header";
 import Footer from "@/componentes/Footer";
 import MockupTelefono from "@/componentes/MockupTelefono";
 import FormularioContacto from "@/componentes/FormularioContacto";
 import IconoInstagram from "@/componentes/IconoInstagram";
+import Revelar from "@/componentes/Revelar";
+import CtaFlotante from "@/componentes/CtaFlotante";
+import Faq from "@/componentes/Faq";
 
 const PILARES = [
   {
@@ -76,6 +81,33 @@ const CAPTURAS = [
   { icono: Camera, titulo: "Fotos de progreso y récords" },
 ];
 
+const PASOS = [
+  {
+    icono: Send,
+    numero: "01",
+    titulo: "Escríbeme",
+    texto: "Rellena el formulario contándome tu objetivo y tu punto de partida.",
+  },
+  {
+    icono: Target,
+    numero: "02",
+    titulo: "Hablamos",
+    texto: "Vemos si encajamos, resolvemos tus dudas y definimos el plan que más te conviene.",
+  },
+  {
+    icono: ClipboardList,
+    numero: "03",
+    titulo: "Recibes tu plan",
+    texto: "Preparo tu rutina y tu dieta personalizada, lista en la app desde el primer día.",
+  },
+  {
+    icono: TrendingUp,
+    numero: "04",
+    titulo: "Progresas cada semana",
+    texto: "Reviso tu evolución semana a semana y ajusto lo que haga falta contigo.",
+  },
+];
+
 const PLANES = [
   {
     nombre: "Mensual",
@@ -95,17 +127,23 @@ export default function Inicio() {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="contenedor flex flex-col items-center gap-6 py-20 text-center md:py-28">
-          <span className="etiqueta">Entrenamiento personal online</span>
-          <h1 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">
+        <section
+          id="hero"
+          className="contenedor relative flex flex-col items-center gap-6 overflow-hidden py-20 text-center md:py-28"
+        >
+          <div className="brillo-hero" aria-hidden="true" />
+          <span className="etiqueta animate-[aparecer_0.6s_ease_both]">
+            Entrenamiento personal online
+          </span>
+          <h1 className="max-w-2xl animate-[aparecer_0.6s_ease_0.1s_both] text-4xl font-bold tracking-tight md:text-5xl">
             Un método real, un entrenador detrás, resultados que se ven.
           </h1>
-          <p className="max-w-xl text-balance text-base text-texto-2 md:text-lg">
+          <p className="max-w-xl animate-[aparecer_0.6s_ease_0.2s_both] text-balance text-base text-texto-2 md:text-lg">
             Rutina que progresa semana a semana, dieta por gramos y una
             revisión real de tu evolución. Nada de apps genéricas sin nadie
             al otro lado.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex animate-[aparecer_0.6s_ease_0.3s_both] flex-col gap-3 sm:flex-row">
             <a href="#contacto" className="cta">
               Empieza tu método
             </a>
@@ -118,7 +156,7 @@ export default function Inicio() {
         {/* Método */}
         <section id="metodo" className="border-t border-borde py-20">
           <div className="contenedor">
-            <div className="mx-auto max-w-2xl text-center">
+            <Revelar className="mx-auto max-w-2xl text-center">
               <span className="etiqueta">El método</span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight">
                 Soy Liviu, y esto es lo que hago distinto
@@ -128,15 +166,17 @@ export default function Inicio() {
                 cliente: nada de rutinas genéricas ni dietas copiadas. Todo se
                 ajusta cada semana según cómo respondes tú.
               </p>
-            </div>
+            </Revelar>
 
             <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {PILARES.map((pilar) => (
-                <div key={pilar.titulo} className="tarjeta">
-                  <pilar.icono className="text-acento" size={26} strokeWidth={1.7} />
-                  <h3 className="mt-4 font-semibold">{pilar.titulo}</h3>
-                  <p className="mt-2 text-sm text-texto-2">{pilar.texto}</p>
-                </div>
+              {PILARES.map((pilar, i) => (
+                <Revelar key={pilar.titulo} retraso={i * 100}>
+                  <div className="tarjeta tarjeta-interactiva h-full">
+                    <pilar.icono className="text-acento" size={26} strokeWidth={1.7} />
+                    <h3 className="mt-4 font-semibold">{pilar.titulo}</h3>
+                    <p className="mt-2 text-sm text-texto-2">{pilar.texto}</p>
+                  </div>
+                </Revelar>
               ))}
             </div>
           </div>
@@ -145,7 +185,7 @@ export default function Inicio() {
         {/* Qué incluye */}
         <section id="incluye" className="border-t border-borde py-20">
           <div className="contenedor">
-            <div className="mx-auto max-w-2xl text-center">
+            <Revelar className="mx-auto max-w-2xl text-center">
               <span className="etiqueta">Qué incluye</span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight">
                 Todo lo que necesitas, en un mismo sitio
@@ -153,15 +193,17 @@ export default function Inicio() {
               <p className="mt-4 text-texto-2">
                 Tu propia app de seguimiento, incluida en el servicio.
               </p>
-            </div>
+            </Revelar>
 
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {INCLUYE.map((item) => (
-                <div key={item.titulo} className="tarjeta">
-                  <item.icono className="text-acento" size={24} strokeWidth={1.7} />
-                  <h3 className="mt-3 text-sm font-semibold">{item.titulo}</h3>
-                  <p className="mt-2 text-sm text-atenuado">{item.texto}</p>
-                </div>
+              {INCLUYE.map((item, i) => (
+                <Revelar key={item.titulo} retraso={(i % 3) * 100}>
+                  <div className="tarjeta tarjeta-interactiva h-full">
+                    <item.icono className="text-acento" size={24} strokeWidth={1.7} />
+                    <h3 className="mt-3 text-sm font-semibold">{item.titulo}</h3>
+                    <p className="mt-2 text-sm text-atenuado">{item.texto}</p>
+                  </div>
+                </Revelar>
               ))}
             </div>
           </div>
@@ -170,7 +212,7 @@ export default function Inicio() {
         {/* Capturas / mockups */}
         <section className="border-t border-borde py-20">
           <div className="contenedor">
-            <div className="mx-auto max-w-2xl text-center">
+            <Revelar className="mx-auto max-w-2xl text-center">
               <span className="etiqueta">La app</span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight">
                 Tu progreso, siempre a mano
@@ -178,15 +220,42 @@ export default function Inicio() {
               <p className="mt-4 text-texto-2">
                 Capturas reales de la app próximamente.
               </p>
-            </div>
+            </Revelar>
 
             <div className="mt-12 flex flex-wrap items-start justify-center gap-6">
-              {CAPTURAS.map((captura) => (
-                <MockupTelefono
-                  key={captura.titulo}
-                  icono={captura.icono}
-                  titulo={captura.titulo}
-                />
+              {CAPTURAS.map((captura, i) => (
+                <Revelar key={captura.titulo} retraso={i * 100}>
+                  <MockupTelefono icono={captura.icono} titulo={captura.titulo} />
+                </Revelar>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Cómo funciona */}
+        <section className="border-t border-borde py-20">
+          <div className="contenedor">
+            <Revelar className="mx-auto max-w-2xl text-center">
+              <span className="etiqueta">Cómo funciona</span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight">
+                Empezar es así de simple
+              </h2>
+            </Revelar>
+
+            <div className="relative mt-12 grid gap-8 md:grid-cols-4">
+              <div
+                className="absolute top-6 right-0 left-0 hidden h-px bg-borde md:block"
+                aria-hidden="true"
+              />
+              {PASOS.map((paso, i) => (
+                <Revelar key={paso.titulo} retraso={i * 120} className="relative text-center">
+                  <div className="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-borde bg-fondo">
+                    <paso.icono className="text-acento" size={20} strokeWidth={1.8} />
+                  </div>
+                  <span className="etiqueta mt-4 block">{paso.numero}</span>
+                  <h3 className="mt-1 font-semibold">{paso.titulo}</h3>
+                  <p className="mt-2 text-sm text-texto-2">{paso.texto}</p>
+                </Revelar>
               ))}
             </div>
           </div>
@@ -195,7 +264,7 @@ export default function Inicio() {
         {/* Planes */}
         <section id="planes" className="border-t border-borde py-20">
           <div className="contenedor">
-            <div className="mx-auto max-w-2xl text-center">
+            <Revelar className="mx-auto max-w-2xl text-center">
               <span className="etiqueta">Planes</span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight">
                 Elige tu compromiso
@@ -204,36 +273,53 @@ export default function Inicio() {
                 Precios a medida según tu punto de partida y objetivo — te los
                 doy al hablar contigo.
               </p>
-            </div>
+            </Revelar>
 
             <div className="mx-auto mt-12 grid max-w-2xl gap-5 sm:grid-cols-2">
-              {PLANES.map((plan) => (
-                <div
-                  key={plan.nombre}
-                  className={`tarjeta flex flex-col gap-3 ${
-                    plan.destacado ? "border-acento" : ""
-                  }`}
-                >
-                  {plan.destacado && (
-                    <span className="etiqueta w-fit rounded-full bg-acento/10 px-3 py-1">
-                      Recomendado
-                    </span>
-                  )}
-                  <h3 className="text-xl font-bold">{plan.nombre}</h3>
-                  <p className="flex-1 text-sm text-texto-2">{plan.texto}</p>
-                  <a href="#contacto" className="ghost mt-2">
-                    Consultar precio
-                  </a>
-                </div>
+              {PLANES.map((plan, i) => (
+                <Revelar key={plan.nombre} retraso={i * 100}>
+                  <div
+                    className={`tarjeta tarjeta-interactiva flex h-full flex-col gap-3 ${
+                      plan.destacado ? "border-acento" : ""
+                    }`}
+                  >
+                    {plan.destacado && (
+                      <span className="etiqueta w-fit rounded-full bg-acento/10 px-3 py-1">
+                        Recomendado
+                      </span>
+                    )}
+                    <h3 className="text-xl font-bold">{plan.nombre}</h3>
+                    <p className="flex-1 text-sm text-texto-2">{plan.texto}</p>
+                    <a href="#contacto" className="ghost mt-2">
+                      Consultar precio
+                    </a>
+                  </div>
+                </Revelar>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="border-t border-borde py-20">
+          <div className="contenedor">
+            <Revelar className="mx-auto max-w-2xl text-center">
+              <span className="etiqueta">Dudas frecuentes</span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight">
+                Antes de escribirme
+              </h2>
+            </Revelar>
+
+            <Revelar retraso={100} className="mt-12">
+              <Faq />
+            </Revelar>
           </div>
         </section>
 
         {/* Contacto */}
         <section id="contacto" className="border-t border-borde py-20">
           <div className="contenedor grid gap-12 md:grid-cols-2 md:items-center">
-            <div>
+            <Revelar>
               <span className="etiqueta">Contacto</span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight">
                 Hablemos de tu objetivo
@@ -251,12 +337,15 @@ export default function Inicio() {
                 <IconoInstagram size={18} />
                 O escríbeme por Instagram: @liviufitness
               </a>
-            </div>
-            <FormularioContacto />
+            </Revelar>
+            <Revelar retraso={100}>
+              <FormularioContacto />
+            </Revelar>
           </div>
         </section>
       </main>
       <Footer />
+      <CtaFlotante />
     </>
   );
 }

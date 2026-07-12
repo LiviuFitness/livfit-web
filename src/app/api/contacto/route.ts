@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "LivFit Web <web@livfit.es>",
+      from: process.env.RESEND_FROM ?? "LivFit Web <web@livfit.es>",
       to: destinatario,
       reply_to: email,
       subject: `Nuevo contacto desde livfit.es — ${nombre}`,
