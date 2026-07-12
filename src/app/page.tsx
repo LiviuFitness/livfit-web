@@ -9,6 +9,7 @@ import {
   TrendingUp,
   Send,
   Target,
+  Calculator,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/componentes/Header";
@@ -246,6 +247,32 @@ export default function Inicio() {
                 </Revelar>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Calculadora — imán gratuito */}
+        <section className="border-t border-borde py-14">
+          <div className="contenedor">
+            <Revelar>
+              <div className="tarjeta tarjeta-interactiva flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-acento/10">
+                    <Calculator className="text-acento" size={22} strokeWidth={1.8} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">
+                      ¿No sabes cuántas calorías necesitas?
+                    </h3>
+                    <p className="mt-1 text-sm text-texto-2">
+                      Calcúlalo gratis en un minuto, sin registrarte.
+                    </p>
+                  </div>
+                </div>
+                <a href="/calculadora" className="ghost shrink-0">
+                  Abrir calculadora
+                </a>
+              </div>
+            </Revelar>
           </div>
         </section>
 

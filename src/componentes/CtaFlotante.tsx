@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function CtaFlotante() {
   const [mostrar, setMostrar] = useState(false);
@@ -8,12 +9,21 @@ export default function CtaFlotante() {
   useEffect(() => {
     const hero = document.getElementById("hero");
     const contacto = document.getElementById("contacto");
-    if (!hero || !contacto) return;
 
     let fueraDelHero = false;
     let dentroDeContacto = false;
-
     const actualizar = () => setMostrar(fueraDelHero && !dentroDeContacto);
+
+    // Páginas sin hero (ej. /calculadora): usar el scroll como referencia.
+    if (!hero) {
+      const alScrollear = () => {
+        fueraDelHero = window.scrollY > 400;
+        actualizar();
+      };
+      window.addEventListener("scroll", alScrollear, { passive: true });
+      alScrollear();
+      return () => window.removeEventListener("scroll", alScrollear);
+    }
 
     const observerHero = new IntersectionObserver(
       ([entry]) => {
@@ -22,19 +32,23 @@ export default function CtaFlotante() {
       },
       { threshold: 0 },
     );
-    const observerContacto = new IntersectionObserver(
-      ([entry]) => {
-        dentroDeContacto = entry.isIntersecting;
-        actualizar();
-      },
-      { threshold: 0.1 },
-    );
-
     observerHero.observe(hero);
-    observerContacto.observe(contacto);
+
+    let observerContacto: IntersectionObserver | undefined;
+    if (contacto) {
+      observerContacto = new IntersectionObserver(
+        ([entry]) => {
+          dentroDeContacto = entry.isIntersecting;
+          actualizar();
+        },
+        { threshold: 0.1 },
+      );
+      observerContacto.observe(contacto);
+    }
+
     return () => {
       observerHero.disconnect();
-      observerContacto.disconnect();
+      observerContacto?.disconnect();
     };
   }, []);
 
@@ -44,9 +58,9 @@ export default function CtaFlotante() {
         mostrar ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <a href="#contacto" className="cta w-full">
+      <Link href="/#contacto" className="cta w-full">
         Empieza tu método
-      </a>
+      </Link>
     </div>
   );
 }

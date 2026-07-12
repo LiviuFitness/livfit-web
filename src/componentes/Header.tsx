@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ENLACES = [
-  { href: "#metodo", texto: "Método" },
-  { href: "#incluye", texto: "Qué incluye" },
-  { href: "#planes", texto: "Planes" },
-  { href: "#contacto", texto: "Contacto" },
+  { href: "/#metodo", texto: "Método" },
+  { href: "/#incluye", texto: "Qué incluye" },
+  { href: "/calculadora", texto: "Calculadora" },
+  { href: "/#planes", texto: "Planes" },
+  { href: "/#contacto", texto: "Contacto" },
 ];
 
 export default function Header() {
@@ -35,9 +36,9 @@ export default function Header() {
           ))}
         </nav>
 
-        <a href="#contacto" className="cta !px-5 !py-2.5 !text-[13.5px]">
+        <Link href="/#contacto" className="cta !px-5 !py-2.5 !text-[13.5px]">
           Apúntate
-        </a>
+        </Link>
       </div>
     </header>
   );
