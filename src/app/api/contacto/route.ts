@@ -5,11 +5,12 @@ interface CuerpoContacto {
   email: string;
   telefono?: string;
   mensaje: string;
+  origen?: string;
 }
 
 export async function POST(request: Request) {
   const cuerpo = (await request.json()) as Partial<CuerpoContacto>;
-  const { nombre, email, telefono, mensaje } = cuerpo;
+  const { nombre, email, telefono, mensaje, origen } = cuerpo;
 
   if (!nombre || !email || !mensaje) {
     return NextResponse.json(
@@ -44,7 +45,10 @@ export async function POST(request: Request) {
       from: process.env.RESEND_FROM ?? "LivFit Web <web@livfit.es>",
       to: destinatario,
       reply_to: email,
-      subject: `Nuevo contacto desde livfit.es — ${nombre}`,
+      subject:
+        origen === "cuestionario"
+          ? `Nuevo cuestionario (Instagram) — ${nombre}`
+          : `Nuevo contacto desde livfit.es — ${nombre}`,
       text: `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono ?? "-"}\n\nMensaje:\n${mensaje}`,
     }),
   });
