@@ -1,38 +1,35 @@
 import type { Metadata } from "next";
-import Header from "@/componentes/Header";
-import Footer from "@/componentes/Footer";
-import CalculadoraCalorias from "@/componentes/CalculadoraCalorias";
+import Image from "next/image";
+import Link from "next/link";
+import DiagnosticoLivfit from "@/componentes/DiagnosticoLivfit";
 
 export const metadata: Metadata = {
-  title: "Calculadora de calorías y macros gratis",
+  title: "Diagnóstico LivFit: tus calorías y macros",
   description:
-    "Calcula gratis tus calorías diarias y el reparto de macros (proteína, carbohidratos y grasas) según tu peso, altura, actividad y objetivo.",
+    "Calcula gratis en 1 minuto cuántas calorías y cuánta proteína necesitas para perder grasa, mantenerte o ganar músculo.",
 };
 
 export default function Calculadora() {
   return (
-    <>
-      <Header />
-      <main className="flex-1">
-        <section className="contenedor py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="etiqueta">Herramienta gratuita</span>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-              Calculadora de calorías y macros
-            </h1>
-            <p className="mt-4 text-texto-2">
-              Con la misma fórmula que uso con mis clientes (Mifflin-St
-              Jeor). Un buen punto de partida — el número exacto se ajusta
-              semana a semana con seguimiento real.
-            </p>
+    <main className="flex-1">
+      <section className="contenedor relative max-w-lg overflow-hidden py-10">
+        <div className="brillo-hero" aria-hidden="true" />
+        <div className="relative">
+          <Link href="/" className="inline-block">
+            <Image src="/logo-livfit.png" alt="LivFit" width={120} height={42} priority className="h-8 w-auto" />
+          </Link>
+
+          <div className="mt-8">
+            <span className="etiqueta">Diagnóstico LivFit · gratis</span>
+            <h1 className="mt-2 text-3xl font-bold tracking-tight">¿Cuántas calorías necesitas de verdad?</h1>
+            <p className="mt-2 text-texto-2">5 preguntas y en 1 minuto tienes tus calorías, tu proteína y tu ritmo estimado.</p>
           </div>
 
-          <div className="mt-12">
-            <CalculadoraCalorias />
+          <div className="mt-10">
+            <DiagnosticoLivfit />
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+        </div>
+      </section>
+    </main>
   );
 }

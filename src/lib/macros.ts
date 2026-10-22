@@ -18,6 +18,9 @@ export interface ResultadoMacros {
   prot: number;
   carb: number;
   gras: number;
+  /** Metabolismo basal y gasto total del día (sin ajuste por objetivo). */
+  tmb: number;
+  tdee: number;
 }
 
 export const FACTORES_ACTIVIDAD = [
@@ -48,5 +51,5 @@ export function calcularMacros(d: DatosCalculadora): ResultadoMacros {
   const gras = Math.round(Math.max((kcal * 0.25) / 9, 0.8 * d.pesoKg) / 5) * 5;
   const carb = Math.max(0, Math.round((kcal - prot * 4 - gras * 9) / 4 / 5) * 5);
 
-  return { kcal, prot, carb, gras };
+  return { kcal, prot, carb, gras, tmb: Math.round(tmb), tdee: Math.round(tdee) };
 }
